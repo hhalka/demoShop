@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>DemoShop</title>
+        <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Open+Sans" />
+        <link rel="stylesheet" href="style/style.css">
+        <script src="script/jquery-2.1.3.min.js"></script>
+        <script src="script/jquery.tmpl.min.js"></script>
+        <script src="script/model.js"></script>
+        <script src="script/script.js"></script>
+    </head>
+    <body>
+        <div class="header">
+            <div class="options">
+                <ul>
+                    <li> Wunschlisten</li>
+                    <li>&euro; EUR</li>
+                    <li> Service/Hilfe</li>
+                </ul>
+            </div>
+            <div class="headerNav">
+                
+                
+                    <ul class="navButtons">
+                        <li>
+                            <div class="logo">
+                                <span>Demo</span>Shop
+                            </div>
+                        </li>
+                        <li>
+                            <form action="#" class="navSearchForm">
+                            <input type="text" class="searchInput" placeholder="search..."/>
+                            <button type="submit" class="submitSearchForm"><span></span></button>
+                        </form>
+                        </li>
+                        <li><button class="firstBtn"><span></span></button></li>
+                        <li><button class="secondBtn"><span>Main Konto</span></button></li>
+                        <li><button class="basketBtn"><span></span></button></li>
+                        <script id="template" type="text/x-jquery-tmpl">
+                            <i id="value">${total}</i>
+                        </script>
+                    </ul>
+            </div>
+            <div>
+                <ul class="menu"></ul>
+            </div>
+       </div>
+       <div class="contentWrapper">
+            <div class="content">
+                <div class="popover">
+                    <div class="popoverNav">
+                        <span class="close">X</span>
+                    </div>
+                    <div class="category">
+                        <div class="subcategories">
+                           <ul>
+                           </ul>
+                        </div>
+                        <div class="representation">
+                            <img>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="products">
+                    <div class="productsHeader">
+                        <p>Kochlust &amp; Provence &gt; Essig &amp; Öl</p>
+                    </div>
+                    <div class="availableProducts">
+                        <div class="inner">
+                            <p>Topseller</p>
+                            <hr>
+                            <ul class="productsList">
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+       </div>
+    </body>
+</html>
