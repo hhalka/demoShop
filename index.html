@@ -11,6 +11,46 @@
         <script src="script/script.js"></script>
     </head>
     <body>
+        <div class="overlay">
+            <div class="busketRepr">
+                <div class="busketHeader">
+                    <p>&lt; Weiter einkaufen</p>
+                </div>
+                <div class="busketContent">
+                    <div class="orderedProducts">
+                        <ul id="orderList">
+                        </ul>
+                    </div>
+                    <script id="item" type="text/x-jquery-tmpl">
+                        
+                            <li class="order">
+                                <div class="orderItem">
+                                    <div>
+                                        <img src=${product.look}>
+                                        <span class="addItem"> + add</span>
+                                        <span class="substractItem">substract - </span>
+                                    </div>
+                                    <div class="orderDescription">
+                                        <span class="removeItem">X</span>
+                                        <p>${amount} X </p> <p class="productLabel">${product.label}</p>
+                                        <p>${product.price}</p>
+                                    </div>
+                                </div>
+                            </li>
+                        
+                    </script>
+                    
+                    <p>Zwischensumme</p>
+                    <p class="additional">Puncte für die Bestellung: </p>
+                    <p class="additional">Puncte eingelöst: </p>
+                   
+                    <form action="#" id="busketForm">
+                        <input type="button" value="Zur Kasse" id="zurKasse" />
+                        <input type="button" value="Warencorb bearbeiten" id="warencorbBearbeiten"/>
+                    </form> 
+                </div>
+            </div>
+        </div>
         <div class="header">
             <div class="options">
                 <ul>
@@ -37,8 +77,11 @@
                         <li><button class="firstBtn"><span></span></button></li>
                         <li><button class="secondBtn"><span>Main Konto</span></button></li>
                         <li><button class="basketBtn"><span></span></button></li>
-                        <script id="template" type="text/x-jquery-tmpl">
-                            <i id="value">${total}</i>
+                        <script id="productsQuantity" type="text/x-jquery-tmpl">
+                            <div id="amount">${orders.length}</div>
+                        </script>
+                        <script id="totalPrice" type="text/x-jquery-tmpl">
+                            <i id="price">${total}</i>
                         </script>
                     </ul>
             </div>

@@ -2,10 +2,18 @@ $(function() {
     // categories
     var hoverMenuItem;
     
-    $("#template").tmpl(busket).appendTo(".basketBtn");
-    var showTotalPrice = $("#value").tmplItem();
+    $("#totalPrice").tmpl(busket).appendTo(".basketBtn");
+    var showTotalPrice = $("#price").tmplItem();
+    
+    $("#productsQuantity").tmpl(busket).appendTo(".basketBtn");
+    var showProductsQuantity = $("#amount").tmplItem();
+    console.log(showProductsQuantity);
+    
+    var busketOrders = $("#item").tmpl(busket.orders).appendTo("#orderList");
+    
     
     function updateUi(template, data) {
+        console.log("updating", template, data);
         template.data.value = data;
         template.update();
     };
@@ -91,9 +99,58 @@ $(function() {
             busket.addOrder(selectedProduct);
             //console.log(busket.orders);
             updateUi(showTotalPrice, busket);
+            updateUi(showProductsQuantity, busket);
         }else {
             busket.increaseAmount(busketSelectedProduct[0]);
             updateUi(showTotalPrice, busket);
+            updateUi(showProductsQuantity, busket);
         }
+        if(busket.orders.length > 0) {
+            $("#amount").css({"display": "block"});
+        }
+        $("#orderList").empty().append($("#item").tmpl(busket.orders));
+        
+        $(".overlay").css({"display": "block"});
+    });
+    
+    $("body").on("click", ".overlay", function(e) {
+        if(e.target === $(".overlay")[0]){
+            $(this).css({"display": "none"});
+        }
+    });
+    
+    $("body").on("click", ".removeItem", function() {
+        var orderToRemove = $($(this).parents("li")[0]).data().tmplItem.data;
+        console.log(orderToRemove);
+        busket.removeOrder(orderToRemove);
+        updateUi(showTotalPrice, busket);
+        updateUi(showProductsQuantity, busket);
+        $("#orderList").empty().append($("#item").tmpl(busket.orders));
+    });
+    
+    $("body").on("click", ".addItem", function() {
+        var DOMElement = $(this).parents("li")[0];
+        var item =$(DOMElement).data().tmplItem.data;
+        console.log(item);
+        busket.increaseAmount(item);
+        console.log($(DOMElement).index());
+        updateUi($(DOMElement).tmplItem(), busket.orders[$(DOMElement).index()]);
+        updateUi(showTotalPrice, busket);
+        updateUi(showProductsQuantity, busket);
+    });
+    
+    $("body").on("click", ".substractItem", function() {
+        var DOMElement = $(this).parents("li")[0];
+        var item =$(DOMElement).data().tmplItem.data;
+        console.log(item);
+        busket.decreaseAmount(item);
+        console.log($(DOMElement).index());
+        updateUi($(DOMElement).tmplItem(), busket.orders[$(DOMElement).index()]);
+        updateUi(showTotalPrice, busket);
+        updateUi(showProductsQuantity, busket);
+    });
+    
+    $(".basketBtn span").before().on("click", function() {
+        $(".overlay").css({"display": "block"});
     })
 });

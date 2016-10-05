@@ -7,6 +7,130 @@ body {
     font-family: "Open Sans";
 }
 
+.overlay {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 1;
+    background: rgba(0, 0, 0,0.6);
+    display: none;
+    overflow: hidden;
+}
+
+.busketRepr {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 400px;
+}
+
+.busketHeader{
+    height: 70px;
+    background: #404c58;
+    color: #ffffff;
+    border-radius: 5px;
+    line-height: 60px;
+    padding: 0px 20px;
+}
+
+.busketContent {
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 5px;
+}
+
+.busketHeader p{
+    margin: 0;
+    font-size: 20pt;
+    font-weight: bold;
+}
+
+.busketContent {
+    font-size: 16pt;
+    font-weight: bold;
+}
+
+#orderList {
+    padding: 0;
+    list-style-type: none;
+    font-size: 12pt;
+}
+
+#orderList li {
+    display: table;
+    margin: 20px 0;
+    width: 100%;
+}
+
+.orderItem{
+    display: table-row;
+    font-size: 10pt;
+}
+
+.orderItem img {
+    max-height: 70px;
+    max-width: 70px;
+    display: table-cell;
+}
+
+.orderDescription {
+    display: table-cell;
+    padding: 0;
+    height: 70px;
+    vertical-align: top;
+}
+
+.orderDescription .removeItem {
+    float: right;
+}
+
+.orderItem span:hover {
+    cursor: pointer;
+}
+
+.orderItem span {
+    padding: 5px;
+}
+
+.orderItem .addItem {
+    border-right: 1px solid black;
+}
+
+.orderItem p {
+    margin: 0;
+}
+
+.busketContent .additional {
+    color: #b3b300;
+}
+
+#busketForm input {
+    width: 100%;
+    height: 50px;
+    font-size: 16px;
+    font-weight: bold;
+    margin: 10px 0;
+    border-radius: 5px;
+}
+
+#zurKasse {
+    background: #ff0000;
+    background: -webkit-linear-gradient(#e60000, #ff0000, #e60000); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(#e60000, #ff0000, #e60000); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(#e60000, #ff0000, #e60000); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(#e60000, #ff0000, #e60000); /* Standard syntax */
+    border-color: #e60000;
+}
+
+#warencorbBearbeiten {
+    background: #d9d9d9;
+    background: -webkit-linear-gradient(#a6a6a6, #d9d9d9, #a6a6a6); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(#a6a6a6, #d9d9d9, #a6a6a6); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(#a6a6a6, #d9d9d9, #a6a6a6); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(#a6a6a6, #d9d9d9, #a6a6a6); /* Standard syntax */
+    border-color: #a6a6a6;
+}
+
 .header {
     width: 100%;
 }
@@ -135,6 +259,7 @@ body {
 
 .basketBtn {
     width: 90px;
+    position: relative;
 }
 
 .basketBtn span:before {
@@ -153,6 +278,26 @@ body {
 
 .secondBtn span{
     vertical-align: -webkit-baseline-middle;
+}
+
+#value {
+    color: #ff0000;
+    font-weight: bold;
+}
+
+#amount {
+    width: 20px;
+    height: 20px;
+    background: #f25720;
+    border-radius: 50%;
+    position: absolute;
+    top: -10px;
+    left: 20px;
+    color: #ffffff;
+    font-weight: bold;
+    text-align: center;
+    line-height: 20px;
+    display: none;
 }
 
 .menu {

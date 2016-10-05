@@ -12,18 +12,18 @@ Category.prototype.addSubcategory = function(name, reference) {
 }
 
 var categories = [
-	new Category("Home", undefined, "images/0.jpg"),
-	new Category("Höhenluft & Abenteuer", undefined, "images/1.jpg"),
-	new Category("Kochlust & Provence", undefined, "images/2.jpg")
+	new Category("Home", undefined, "style/images/0.jpg"),
+	new Category("Höhenluft & Abenteuer", undefined, "style/images/1.jpg"),
+	new Category("Kochlust & Provence", undefined, "style/images/2.jpg")
         .addSubcategory("Essig & Öl"),
-	new Category("Handwerk & Tradition", undefined, "images/3.jpg"),
-	new Category("Specials & Sales", undefined, "images/4.jpg")
+	new Category("Handwerk & Tradition", undefined, "style/images/3.jpg"),
+	new Category("Specials & Sales", undefined, "style/images/4.jpg")
         .addSubcategory("Fashion Sale")
         .addSubcategory("Kauf 3 Zahl 2")
         .addSubcategory("Gratisartikel")
         .addSubcategory("Das 2te Produkt günstiger")
         .addSubcategory("Sale"),
-    new Category("Blog", undefined, "images/5.jpg")
+    new Category("Blog", undefined, "style/images/5.jpg")
 ];
 
 var Product = function(label, description, category, price, look) {
@@ -35,9 +35,9 @@ var Product = function(label, description, category, price, look) {
 };
 
 var products = [
-    new Product("Quinta de Sao Vicente Essig", "0.25 Liter(39.60€ / 1 Liter)", "Essig & Öl", "9.90 €", "images/oil_1.png"),
-    new Product("Steirisches Kürbiskernöl ggA", "0.25 Liter(56.00€ / 1 Liter)", "Essig & Öl", "14.00 €", "images/oil_2.png"),
-    new Product("Quinta de Sao Vicente Öl", "0.25 Liter(27.60€ / 1 Liter)", "Essig & Öl", "6.90 €", "images/oil_3.png")
+    new Product("Quinta de Sao Vicente Essig", "0.25 Liter(39.60€ / 1 Liter)", "Essig & Öl", "9.90 €", "style/images/oil_1.png"),
+    new Product("Steirisches Kürbiskernöl ggA", "0.25 Liter(56.00€ / 1 Liter)", "Essig & Öl", "14.00 €", "style/images/oil_2.png"),
+    new Product("Quinta de Sao Vicente Öl", "0.25 Liter(27.60€ / 1 Liter)", "Essig & Öl", "6.90 €", "style/images/oil_3.png")
 ];
 
 var Order = function(product, amount) {
