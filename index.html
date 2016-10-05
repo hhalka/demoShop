@@ -27,8 +27,7 @@
                                 <div class="orderItem">
                                     <div>
                                         <img src=${product.look}>
-                                        <span class="addItem"> + add</span>
-                                        <span class="substractItem">substract - </span>
+                                        <div><span class="addItem"> + add</span><span class="substractItem">substract - </span></div>
                                     </div>
                                     <div class="orderDescription">
                                         <span class="removeItem">X</span>
@@ -37,10 +36,13 @@
                                     </div>
                                 </div>
                             </li>
+                            <hr>
                         
                     </script>
-                    
-                    <p>Zwischensumme</p>
+                    <p id="busketTotal">Zwischensumme</p>
+                    <script id="zwischensumme" type="text/x-jquery-tmpl">
+                         <span id="zwischensummeTotal">${total} &euro;</span>
+                    </script>
                     <p class="additional">Puncte für die Bestellung: </p>
                     <p class="additional">Puncte eingelöst: </p>
                    
@@ -70,18 +72,18 @@
                         </li>
                         <li>
                             <form action="#" class="navSearchForm">
-                            <input type="text" class="searchInput" placeholder="search..."/>
+                            <input type="text" class="searchInput" placeholder="Suchbegriff..."/>
                             <button type="submit" class="submitSearchForm"><span></span></button>
                         </form>
                         </li>
-                        <li><button class="firstBtn"><span></span></button></li>
-                        <li><button class="secondBtn"><span>Main Konto</span></button></li>
-                        <li><button class="basketBtn"><span></span></button></li>
+                        <li><button class="btn firstBtn"><span></span></button></li>
+                        <li><button class="btn secondBtn"><span>Main Konto</span></button></li>
+                        <li><button class="btn basketBtn"><span></span></button></li>
                         <script id="productsQuantity" type="text/x-jquery-tmpl">
-                            <div id="amount">${orders.length}</div>
+                            <div id="amount" {{if orders.length <= 0}} class="obscured"{{/if}}>${orders.length}</div>
                         </script>
                         <script id="totalPrice" type="text/x-jquery-tmpl">
-                            <i id="price">${total}</i>
+                            <i id="price">${total} &euro;</i>
                         </script>
                     </ul>
             </div>
@@ -108,7 +110,7 @@
 
                 <div class="products">
                     <div class="productsHeader">
-                        <p>Kochlust &amp; Provence &gt; Essig &amp; Öl</p>
+                        <span class="navCategory"></span> &gt; <span class="navSubcategory"></span>
                     </div>
                     <div class="availableProducts">
                         <div class="inner">

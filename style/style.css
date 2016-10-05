@@ -7,6 +7,10 @@ body {
     font-family: "Open Sans";
 }
 
+.obscured {
+    display: none;
+}
+
 .overlay {
     width: 100%;
     height: 100%;
@@ -22,13 +26,13 @@ body {
     top: 0;
     right: 0;
     width: 400px;
+    height: 100%;
 }
 
 .busketHeader{
     height: 70px;
     background: #404c58;
     color: #ffffff;
-    border-radius: 5px;
     line-height: 60px;
     padding: 0px 20px;
 }
@@ -36,7 +40,9 @@ body {
 .busketContent {
     padding: 20px;
     background: #ffffff;
-    border-radius: 5px;
+    font-size: 16pt;
+    font-weight: bold;
+    height: 100%;
 }
 
 .busketHeader p{
@@ -45,9 +51,9 @@ body {
     font-weight: bold;
 }
 
-.busketContent {
-    font-size: 16pt;
-    font-weight: bold;
+.orderedProducts{
+    height: 50%;
+    overflow-y: auto;
 }
 
 #orderList {
@@ -79,6 +85,7 @@ body {
     height: 70px;
     vertical-align: top;
 }
+
 
 .orderDescription .removeItem {
     float: right;
@@ -113,22 +120,18 @@ body {
     border-radius: 5px;
 }
 
-#zurKasse {
-    background: #ff0000;
-    background: -webkit-linear-gradient(#e60000, #ff0000, #e60000); /* For Safari 5.1 to 6.0 */
-    background: -o-linear-gradient(#e60000, #ff0000, #e60000); /* For Opera 11.1 to 12.0 */
-    background: -moz-linear-gradient(#e60000, #ff0000, #e60000); /* For Firefox 3.6 to 15 */
-    background: linear-gradient(#e60000, #ff0000, #e60000); /* Standard syntax */
+input#zurKasse {
+    background: #d9400b;
     border-color: #e60000;
 }
 
 #warencorbBearbeiten {
     background: #d9d9d9;
-    background: -webkit-linear-gradient(#a6a6a6, #d9d9d9, #a6a6a6); /* For Safari 5.1 to 6.0 */
-    background: -o-linear-gradient(#a6a6a6, #d9d9d9, #a6a6a6); /* For Opera 11.1 to 12.0 */
-    background: -moz-linear-gradient(#a6a6a6, #d9d9d9, #a6a6a6); /* For Firefox 3.6 to 15 */
-    background: linear-gradient(#a6a6a6, #d9d9d9, #a6a6a6); /* Standard syntax */
     border-color: #a6a6a6;
+}
+
+#zwischensummeTotal{
+    float: right;
 }
 
 .header {
@@ -238,6 +241,15 @@ body {
     display: inline-block;
 }
 
+.navButtons .btn {
+    height: 40px;
+    position: relative;
+}
+
+.firstBtn {
+    vertical-align: top;
+}
+
 .firstBtn span:before {
     background-image: url("images/heart.png");
     background-size: 30px 30px;
@@ -257,11 +269,6 @@ body {
     float: left;
 }
 
-.basketBtn {
-    width: 90px;
-    position: relative;
-}
-
 .basketBtn span:before {
     background-image: url("images/trolley.png");
     background-size: 30px 30px;
@@ -272,8 +279,15 @@ body {
     float: left;
 }
 
-.basketBtn span {
+.basketBtn #price {
     vertical-align: -webkit-baseline-middle;
+    padding: 5px;
+    color: #f25720;
+    font-weight: bold;
+}
+
+.basketBtn {
+    width: 100px;
 }
 
 .secondBtn span{
@@ -297,7 +311,6 @@ body {
     font-weight: bold;
     text-align: center;
     line-height: 20px;
-    display: none;
 }
 
 .menu {
@@ -457,5 +470,10 @@ li.hover {
 }
 
 .productsList span {
+    font-weight: bold;
+}
+
+.productsList .productPrice {
+    font-size: 14pt;
     font-weight: bold;
 }

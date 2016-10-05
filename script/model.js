@@ -76,8 +76,10 @@ Basket.prototype.increaseAmount = function(order) {
 }
 
 Basket.prototype.decreaseAmount = function(order) {
-    order.decreaseAmount();
-    this.total = this.calculateTotal();
+    if(order.amount > 0) {
+        order.decreaseAmount();
+        this.total = this.calculateTotal();
+    }
 }
 
 

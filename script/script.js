@@ -9,6 +9,9 @@ $(function() {
     var showProductsQuantity = $("#amount").tmplItem();
     console.log(showProductsQuantity);
     
+    $("#zwischensumme").tmpl(busket).appendTo("#busketTotal");
+    var showBusketTotal = $("#zwischensummeTotal").tmplItem();
+    
     var busketOrders = $("#item").tmpl(busket.orders).appendTo("#orderList");
     
     
@@ -52,6 +55,7 @@ $(function() {
     );
     
     activeMenuItems.click(function() {
+        menuItems.removeClass("active");
         $(this).addClass("active");
         $(".popover").css({"display": "none"});
     });
@@ -75,15 +79,21 @@ $(function() {
         var self = this;
         $(".popover").css({"display": "none"});
         $(".products").css({"display": "block"});
+        menuItems.removeClass("active");
+        $(hoverMenuItem).addClass("active");
+            $(".navCategory").text($(hoverMenuItem).text());
+            $(".navSubcategory").text($(self).text());
+        console.log($(hoverMenuItem).text(),$(self).text())
         //console.log($(this).text());
         var productsList = products.filter(function(product) {return product.category === $(self).text()});
+        $(".productsList").empty();
         //console.log(productsList)
         var productTemplateMarkup = "<li>"+
                                         "<div>"+
                                             "<img src=${look}>"+
                                             "<h5>${label}</h5>"+
                                             "<p><span>Inhalt</span> ${description}</p>"+
-                                            "<p>${price}</p>"+
+                                            "<p class='productPrice'>${price}</p>"+
                                         "</div>"+
                                     "</li>";
         $.template("productTemplate", productTemplateMarkup);
@@ -100,13 +110,12 @@ $(function() {
             //console.log(busket.orders);
             updateUi(showTotalPrice, busket);
             updateUi(showProductsQuantity, busket);
+            updateUi(showBusketTotal, busket);
         }else {
             busket.increaseAmount(busketSelectedProduct[0]);
             updateUi(showTotalPrice, busket);
             updateUi(showProductsQuantity, busket);
-        }
-        if(busket.orders.length > 0) {
-            $("#amount").css({"display": "block"});
+            updateUi(showBusketTotal, busket);
         }
         $("#orderList").empty().append($("#item").tmpl(busket.orders));
         
@@ -125,6 +134,7 @@ $(function() {
         busket.removeOrder(orderToRemove);
         updateUi(showTotalPrice, busket);
         updateUi(showProductsQuantity, busket);
+        updateUi(showBusketTotal, busket);
         $("#orderList").empty().append($("#item").tmpl(busket.orders));
     });
     
@@ -137,6 +147,7 @@ $(function() {
         updateUi($(DOMElement).tmplItem(), busket.orders[$(DOMElement).index()]);
         updateUi(showTotalPrice, busket);
         updateUi(showProductsQuantity, busket);
+        updateUi(showBusketTotal, busket);
     });
     
     $("body").on("click", ".substractItem", function() {
@@ -148,9 +159,10 @@ $(function() {
         updateUi($(DOMElement).tmplItem(), busket.orders[$(DOMElement).index()]);
         updateUi(showTotalPrice, busket);
         updateUi(showProductsQuantity, busket);
+        updateUi(showBusketTotal, busket);
     });
     
-    $(".basketBtn span").before().on("click", function() {
+    $(".basketBtn").on("click", function() {
         $(".overlay").css({"display": "block"});
     })
 });
